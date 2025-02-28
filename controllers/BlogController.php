@@ -16,7 +16,7 @@ class BlogController {
             $body = $_POST["body"];
             $blogModel->create($title, $body);
         }
-        require "views/blog/index.view.php";
+        require "views/blog/create.view.php";
     }
 
     public function delete() {

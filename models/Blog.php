@@ -13,13 +13,10 @@ class Blog extends Model {
         return $posts;
     }
 
-    public function create(string $title, string $body) {
-        $sql = "INSERT INTO " . static::getTableName() . " (title, body) VALUES (:title, :body)";
-        $params = [
-            "title" => $title,
-            "body" => $body
-        ];
-        self::$db->query($sql, $params);
+    public function store($title, $body) {
+        $values = ["title" => $title, "body" => $body];
+        $response = Blog::create($values);
+        return $response;
     }
 
 }
